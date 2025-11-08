@@ -3,7 +3,7 @@ import Link from "next/link"
 
 import { OpenInV0Button } from "@/components/open-in-v0-button"
 
-const registryBaseUrl = process.env.NEXT_PUBLIC_REGISTRY_BASE_URL ?? "http://localhost:3000/r"
+const registryBaseUrl = process.env.NEXT_PUBLIC_REGISTRY_BASE_URL ?? "https://haxdesign.com/r"
 
 export default function Home() {
   const installCommand = `npx shadcn@latest add @sidebar --registry "${registryBaseUrl}"`

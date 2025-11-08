@@ -1,7 +1,7 @@
 import { Button } from "@/registry/new-york/ui/button"
 import { cn } from "@/lib/utils"
 
-const DEFAULT_REGISTRY_BASE_URL = process.env.NEXT_PUBLIC_REGISTRY_BASE_URL ?? "http://localhost:3000/r"
+const DEFAULT_REGISTRY_BASE_URL = process.env.NEXT_PUBLIC_REGISTRY_BASE_URL ?? "https://haxdesign.com/r"
 
 function buildRegistryItemUrl(name: string, baseUrl: string = DEFAULT_REGISTRY_BASE_URL) {
   const normalizedBase = baseUrl.replace(/\/+$/, "")
