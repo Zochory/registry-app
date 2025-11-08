@@ -1,5 +1,7 @@
 import { Transition } from "motion/react";
 
+type TransitionWithEase = Extract<Transition, { ease?: unknown }>;
+
 export function createStaggerDelay(index: number, baseDelay = 0, staggerAmount = 0.05): number {
   return baseDelay + index * staggerAmount;
 }
@@ -15,14 +17,14 @@ export function createSpringTransition(stiffness = 300, damping = 30, mass = 0.8
 
 export function createEaseTransition(
   duration: number,
-  ease: Transition["ease"] = "easeInOut" as Transition["ease"],
+  ease: TransitionWithEase["ease"] = "easeInOut",
   delay = 0
-): Transition {
+): TransitionWithEase {
   return {
     duration,
     ease,
     delay,
-  };
+  } satisfies TransitionWithEase;
 }
 
 export function createCombinedTransition(

@@ -32,25 +32,25 @@ export const MORPH_TRANSITION = {
   sidebarContentExit: {
     duration: MORPH_TIMING.sidebarExitDuration,
     ease: [0.4, 0, 1, 1],
-  } as Transition,
+  } satisfies Transition,
   sidebarContentEnter: {
     duration: MORPH_TIMING.sidebarEnterDuration,
     delay: MORPH_TIMING.sidebarEnterDelay,
     ease: [0, 0, 0.2, 1],
-  } as Transition,
+  } satisfies Transition,
   toolbarContentEnter: {
     duration: MORPH_TIMING.toolbarEnterDuration,
     delay: MORPH_TIMING.toolbarEnterDelay,
     ease: [0, 0, 0.2, 1],
-  } as Transition,
+  } satisfies Transition,
   scale: {
     duration: MORPH_TIMING.scaleDuration,
     ease: [0.34, 1.56, 0.64, 1],
-  } as Transition,
+  } satisfies Transition,
   shadow: {
     duration: MORPH_TIMING.shadowDuration,
     ease: "easeInOut" as const,
-  } as Transition,
+  } satisfies Transition,
   staggerChildren: 0.05,
   itemExitDuration: 0.2,
   itemEnterDuration: 0.3,

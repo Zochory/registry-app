@@ -21,9 +21,9 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@/components/*": ["./components/*", "registry/hax/sidebar/components/*"],
-      "@/lib/*": ["./lib/*", "registry/hax/sidebar/lib/*"],
-      "@/types/*": ["./types/*", "registry/hax/sidebar/types/*"]
+      "@/components/*": ["./components/*", "registry/hax-ui/sidebar/components/*"],
+      "@/lib/*": ["./lib/*", "registry/hax-ui/sidebar/lib/*"],
+      "@/types/*": ["./types/*", "registry/hax-ui/sidebar/types/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

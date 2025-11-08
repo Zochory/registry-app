@@ -1,9 +1,9 @@
 # Morphing Sidebar Block
 
-This package delivers the morphing sidebar / floating toolbar experience showcased in Haxdesign. Install it via the shadcn registry CLI:
+This package delivers the morphing sidebar / floating toolbar experience showcased in Hax UI. Install it via the shadcn registry CLI:
 
 ```bash
-npx shadcn@latest add @sidebar
+npx shadcn@latest add http://localhost:3000/r/@sidebar.json
 ```
 
 ## What's Included
