@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState, useRef, useCallback, memo, useMemo } from "react";
 import { Plus } from "lucide-react";
+import { useTheme } from "@/components/theme/theme-provider";
 
 // ===== TYPES =====
 
@@ -146,6 +147,9 @@ const SendButton = memo(({
   isDisabled,
   textColor
 }: SendButtonProps) => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  
   return (
     <button
       type="submit"
@@ -153,8 +157,8 @@ const SendButton = memo(({
       disabled={isDisabled}
       className={`ml-auto self-center h-8 w-8 flex items-center justify-center rounded-full border-0 p-0 transition-all z-20 ${
         isDisabled
-          ? 'opacity-40 cursor-not-allowed bg-gray-500 text-white/60'
-          : 'opacity-90 bg-[#0A1217] text-white hover:opacity-100 cursor-pointer hover:shadow-lg'
+          ? 'opacity-80 cursor-not-allowed bg-[#1A1A1A] text-white/60'
+          : `opacity-90 text-white hover:opacity-100 cursor-pointer hover:shadow-lg ${isDark ? 'bg-[#1A1A1A]' : 'bg-[#0A1217]'}`
       }`}
     >
       <svg
@@ -184,10 +188,18 @@ const OptionsMenu = memo(({
   textColor,
   menuOptions 
 }: OptionsMenuProps) => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  
   if (!isOpen) return null;
 
   return (
-    <div className="absolute bottom-full left-0 mb-1 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden z-30 min-w-[120px]">
+    <div 
+      className="absolute bottom-full left-0 mb-1 rounded-lg shadow-lg overflow-hidden z-30 min-w-[120px] backdrop-blur-md"
+      style={{
+        backgroundColor: isDark ? 'rgba(255, 255, 255, 0.24)' : 'white'
+      }}
+    >
       <ul className="py-1">
         {menuOptions.map((option) => (
           <li
@@ -311,7 +323,7 @@ const GlowEffects = memo(({
       <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-25 transition-opacity bg-gradient-to-r from-transparent via-white/4 to-transparent animate-pulse blur-sm" style={{ transitionDuration: `${animationDuration}ms` }}></div>
       
       {/* Minimal gradient background on hover */}
-      <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-15 group-focus-within:opacity-10 transition-opacity duration-300 bg-gradient-to-r from-purple-400/5 via-pink-400/5 to-blue-400/5 blur-sm"></div>
+      <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-20 group-focus-within:opacity-15 transition-opacity duration-300 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 blur-sm"></div>
     </>
   );
 });
@@ -351,6 +363,8 @@ const InputArea = memo(({
   textColor
 }: InputAreaProps) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
   
   // Auto-resize textarea
   useEffect(() => {
@@ -374,7 +388,9 @@ const InputArea = memo(({
         placeholder={placeholder}
         aria-label="Message Input"
         rows={1}
-        className="w-full min-h-8 max-h-24 bg-transparent text-sm font-normal text-left self-center placeholder-[#6B7280] border-0 outline-none px-3 pr-10 py-1 z-20 relative resize-none overflow-y-auto"
+        className={`w-full min-h-8 max-h-24 bg-transparent text-sm font-normal text-left self-center border-0 outline-none px-3 pr-10 py-1 z-20 relative resize-none overflow-y-auto ${
+          isDark ? 'placeholder-white' : 'placeholder-[rgba(0,0,0,0.72)]'
+        }`}
         style={{
           fontFamily: '"Inter", sans-serif',
           letterSpacing: "-0.14px",
@@ -607,9 +623,11 @@ export function PromptInputDynamicGrow({
     <ChatInputContext.Provider value={contextValue}>
       <form
         onSubmit={handleSubmit}
-        className={`sticky bottom-4 left-1/2 -translate-x-1/2 z-50 mx-auto min-h-12 ${baseWidthClass} transition-all ease-out ${focusWidthClass} translate-y-0 opacity-100`}
+        className={`sticky bottom-4 left-1/2 z-50 mx-auto min-h-12 ${baseWidthClass} transition-all ease-out ${focusWidthClass} translate-y-0 opacity-100`}
         style={{
-          transition: `transform ${animationDuration}ms, opacity 200ms, left 200ms, width ${animationDuration}ms`,
+          transform: 'translateX(-50%)',
+          transformOrigin: 'center',
+          transition: `transform ${animationDuration}ms, opacity 200ms, width ${animationDuration}ms`,
         }}
       >
         <div

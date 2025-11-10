@@ -52,15 +52,6 @@ function RegistryItemSection({ item, registryBaseUrl }: RegistryItemSectionProps
           <PreviewComponent />
         </div>
       )}
-
-      <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-        <li>Includes sidebar, floating toolbar, hooks, constants, and supporting utilities.</li>
-        <li>
-          Files resolve to the <code>@/components</code>, <code>@/lib</code>, and <code>@/types</code> aliases expected by
-          shadcn consumers.
-        </li>
-        <li>Adjust <code>NEXT_PUBLIC_REGISTRY_BASE_URL</code> to point CLI commands at your deployed host.</li>
-      </ul>
     </section>
   )
 }
