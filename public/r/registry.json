@@ -185,8 +185,6 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-    {
-      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "@tab-bars",
       "type": "registry:block",
       "title": "Tab Bars",

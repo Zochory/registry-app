@@ -17,9 +17,9 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/hax-ui/sidebar/components/sidebar/sidebar-2.tsx",
+          "path": "registry/hax-ui/sidebar/components/sidebar/sidebar.tsx",
           "type": "registry:component",
-          "target": "components/sidebar/sidebar-2.tsx"
+          "target": "components/sidebar/sidebar.tsx"
         },
         {
           "path": "registry/hax-ui/sidebar/components/sidebar/navigation-container.tsx",
@@ -107,22 +107,22 @@
           "target": "components/sidebar/index.ts"
         },
         {
-          "path": "registry/hax-ui/sidebar-2/components/common/icon-button.tsx",
+          "path": "registry/hax-ui/sidebar/components/common/icon-button.tsx",
           "type": "registry:component",
           "target": "components/common/icon-button.tsx"
         },
         {
-          "path": "registry/hax-ui/sidebar-2/components/theme/theme-provider.tsx",
+          "path": "registry/hax-ui/sidebar/components/theme/theme-provider.tsx",
           "type": "registry:component",
           "target": "components/theme/theme-provider.tsx"
         },
         {
-          "path": "registry/hax-ui/sidebar-2/components/theme/theme-toggle.tsx",
+          "path": "registry/hax-ui/sidebar/components/theme/theme-toggle.tsx",
           "type": "registry:component",
           "target": "components/theme/theme-toggle.tsx"
         },
         {
-          "path": "registry/hax-ui/sidebar-2/components/theme/index.ts",
+          "path": "registry/hax-ui/sidebar/components/theme/index.ts",
           "type": "registry:component",
           "target": "components/theme/index.ts"
         },
@@ -167,17 +167,17 @@
           "target": "lib/sidebar/svg-paths.ts"
         },
         {
-          "path": "registry/hax-ui/sidebar-2/lib/utils/animations.ts",
+          "path": "registry/hax-ui/sidebar/lib/utils/animations.ts",
           "type": "registry:lib",
           "target": "lib/utils/animations.ts"
         },
         {
-          "path": "registry/hax-ui/sidebar-2/lib/utils/storage.ts",
+          "path": "registry/hax-ui/sidebar/lib/utils/storage.ts",
           "type": "registry:lib",
           "target": "lib/utils/storage.ts"
         },
         {
-          "path": "registry/hax-ui/sidebar-2/types/navigation.ts",
+          "path": "registry/hax-ui/sidebar/types/navigation.ts",
           "type": "registry:lib",
           "target": "types/navigation.ts"
         }
