@@ -9,7 +9,7 @@ import { SidebarFooter } from "@/components/sidebar/sidebar-footer";
 import { SidebarHeader } from "@/components/sidebar/sidebar-header";
 import { SidebarNav } from "@/components/sidebar/sidebar-nav";
 import { DEFAULT_ACTIVE_ITEM } from "@/lib/sidebar/navigation";
-import { NavigationItemId } from "@/types/navigation";
+import { NavigationItemId } from "@/lib/sidebar/navigation";
 
 export function Sidebar() {
   const [activeItem, setActiveItem] = useState<NavigationItemId>(DEFAULT_ACTIVE_ITEM);

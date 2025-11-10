@@ -1,21 +1,34 @@
-'use client';
+"use client"
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react"
+import { useMemo } from "react"
 
-import { FloatingLogo } from "@/components/sidebar/floating-logo";
-import { SidebarContent } from "@/components/sidebar/sidebar-content";
-import { TabBarsContent } from "@/components/sidebar/tab-bars-content";
-import { useTheme } from "@/components/theme/theme-provider";
-import { MORPH_SCALE_VALUES, MORPH_TIMING, MORPH_TRANSITION } from "@/lib/sidebar/morph";
-import { useNavigationMorph } from "@/lib/sidebar/hooks/use-navigation-morph";
-import { useNavigationState } from "@/lib/sidebar/hooks/use-navigation-state";
-import { getShadow } from "@/lib/utils/animations";
+import { FloatingLogo } from "@/components/sidebar/floating-logo"
+import { SidebarContent } from "@/components/sidebar/sidebar-content"
+import { TabBarsContent } from "@/components/sidebar/tab-bars-content"
+import { useTheme } from "@/components/theme/theme-provider"
+import { MORPH_SCALE_VALUES, MORPH_TIMING, MORPH_TRANSITION } from "@/lib/sidebar/morph"
+import { useNavigationMorph } from "@/lib/sidebar/hooks/use-navigation-morph"
+import { useNavigationState } from "@/lib/sidebar/hooks/use-navigation-state"
+import { getShadow } from "@/lib/utils/animations"
 
 export function NavigationContainer() {
-  const { activeItem, setActiveItem } = useNavigationState();
-  const { isCollapsed, showTabBarsContent, toggleCollapse } = useNavigationMorph(MORPH_TIMING.contentSwitchDelay);
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
+  const { activeItem, setActiveItem } = useNavigationState()
+  const { isCollapsed, showTabBarsContent, toggleCollapse } = useNavigationMorph(MORPH_TIMING.contentSwitchDelay)
+  const { theme } = useTheme()
+  const isDark = theme === "dark"
+
+  const shadowValue = useMemo(() => getShadow(isDark, isCollapsed), [isDark, isCollapsed])
+
+  const containerStyle = useMemo(
+    () => ({
+      zIndex: isCollapsed ? 50 : "auto",
+      willChange: isCollapsed ? "transform, width, height, opacity" : "auto",
+      backfaceVisibility: "hidden" as const,
+      WebkitFontSmoothing: "antialiased" as const,
+    }),
+    [isCollapsed],
+  )
 
   return (
     <>
@@ -38,7 +51,7 @@ export function NavigationContainer() {
           paddingBottom: isCollapsed ? 0 : 12,
         }}
         transition={MORPH_TRANSITION.container}
-        style={{ zIndex: isCollapsed ? 50 : "auto", willChange: "transform, width, height" }}
+        style={containerStyle}
         data-testid={isCollapsed ? "tab-bars" : "sidebar"}
         data-collapsed={isCollapsed}
       >
@@ -58,11 +71,18 @@ export function NavigationContainer() {
             scale: isCollapsed ? MORPH_SCALE_VALUES.collapse : MORPH_SCALE_VALUES.expand,
           }}
           transition={{ ...MORPH_TRANSITION.container, scale: MORPH_TRANSITION.scale }}
-          style={{ backgroundColor: "rgba(255, 255, 255, 0.05)", overflow: "hidden", willChange: "transform" }}
+          style={{
+            backgroundColor: "rgba(255, 255, 255, 0.05)",
+            overflow: "hidden",
+            willChange: isCollapsed ? "transform, opacity, width, height" : "auto",
+            backfaceVisibility: "hidden",
+            perspective: 1000,
+            transform: "translateZ(0)",
+          }}
         >
           <motion.div
             className="absolute inset-0 pointer-events-none rounded-[24px]"
-            animate={{ boxShadow: getShadow(isDark, isCollapsed) }}
+            animate={{ boxShadow: shadowValue }}
             transition={MORPH_TRANSITION.shadow}
           />
 
@@ -70,15 +90,18 @@ export function NavigationContainer() {
             {showTabBarsContent ? (
               <motion.div
                 key="tab-bars"
-                initial={{ opacity: 0, scale: 0.96 }}
+                initial={{ opacity: 0, scale: 0.97 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
+                exit={{ opacity: 0, scale: 0.97 }}
                 transition={{
                   opacity: {
                     duration: MORPH_TRANSITION.tabBarsContentEnter.duration,
                     ease: MORPH_TRANSITION.tabBarsContentEnter.ease,
                   },
-                  scale: MORPH_TRANSITION.scale,
+                  scale: {
+                    duration: MORPH_TRANSITION.tabBarsContentEnter.duration,
+                    ease: MORPH_TRANSITION.tabBarsContentEnter.ease,
+                  },
                 }}
                 className="flex items-center"
                 style={{ gap: 6 }}
@@ -88,12 +111,12 @@ export function NavigationContainer() {
             ) : (
               <motion.div
                 key="sidebar"
-                initial={{ opacity: 1 }}
-                animate={{ opacity: isCollapsed ? 0 : 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={
-                  isCollapsed ? MORPH_TRANSITION.sidebarContentExit : MORPH_TRANSITION.sidebarContentEnter
-                }
+                transition={{
+                  opacity: isCollapsed ? MORPH_TRANSITION.sidebarContentExit : MORPH_TRANSITION.sidebarContentEnter,
+                }}
                 className="w-full h-full"
               >
                 <SidebarContent activeItem={activeItem} onItemClick={setActiveItem} onMenuClick={toggleCollapse} />
@@ -101,16 +124,7 @@ export function NavigationContainer() {
             )}
           </AnimatePresence>
         </motion.div>
-
-        {isCollapsed && (
-          <motion.div
-            className="absolute inset-0 pointer-events-none"
-            animate={{ y: [0, -2, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            aria-hidden="true"
-          />
-        )}
       </motion.div>
     </>
-  );
+  )
 }

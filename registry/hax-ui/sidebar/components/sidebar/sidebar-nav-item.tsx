@@ -4,9 +4,9 @@ import { motion } from "motion/react";
 import { ReactNode, memo } from "react";
 
 import { useTheme } from "@/components/theme/theme-provider";
-import { INTERACTION_ANIMATIONS, SPRING_CONFIG, TRANSITIONS } from "@/lib/sidebar-2/animations";
-import { getColor } from "@/lib/sidebar-2/theme";
-import { NavigationVariant } from "@/lib/sidebar-2/navigation";
+import { INTERACTION_ANIMATIONS, SPRING_CONFIG, TRANSITIONS } from "@/lib/sidebar/animations";
+import { getColor } from "@/lib/sidebar/theme";
+import { NavigationVariant } from "@/lib/sidebar/navigation";
 
 interface SidebarNavItemProps {
   icon: ReactNode;

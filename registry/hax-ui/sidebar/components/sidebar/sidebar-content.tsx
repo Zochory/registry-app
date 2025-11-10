@@ -1,9 +1,9 @@
 'use client';
 
-import { SidebarFooter } from "@/components/sidebar-2/sidebar-footer";
-import { SidebarHeader } from "@/components/sidebar-2/sidebar-header";
-import { SidebarNav } from "@/components/sidebar-2/sidebar-nav";
-import { NavigationItemId } from "@/lib/sidebar-2/navigation";
+import { SidebarFooter } from "@/components/sidebar/sidebar-footer";
+import { SidebarHeader } from "@/components/sidebar/sidebar-header";
+import { SidebarNav } from "@/components/sidebar/sidebar-nav";
+import { NavigationItemId } from "@/lib/sidebar/navigation";
 
 interface SidebarContentProps {
   activeItem: NavigationItemId;

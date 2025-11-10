@@ -2,8 +2,8 @@
 
 import { useState, useCallback } from "react";
 
-import { DEFAULT_ACTIVE_ITEM } from "@/lib/sidebar-2/navigation";
-import { NavigationItemId } from "@/lib/sidebar-2/navigation";
+import { DEFAULT_ACTIVE_ITEM } from "@/lib/sidebar/navigation";
+import { NavigationItemId } from "@/lib/sidebar/navigation";
 
 export function useNavigationState(initialItem: NavigationItemId = DEFAULT_ACTIVE_ITEM) {
   const [activeItem, setActiveItem] = useState<NavigationItemId>(initialItem);

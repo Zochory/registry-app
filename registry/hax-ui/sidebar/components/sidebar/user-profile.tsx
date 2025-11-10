@@ -6,8 +6,8 @@ import { SidebarNavItem } from "./sidebar-nav-item"
 import { SettingsIcon } from "./sidebar-icons"
 
 import { useTheme } from "@/components/theme/theme-provider"
-import { INTERACTION_ANIMATIONS, TRANSITIONS } from "@/lib/sidebar-2/animations"
-import { getColor } from "@/lib/sidebar-2/theme"
+import { INTERACTION_ANIMATIONS, TRANSITIONS } from "@/lib/sidebar/animations"
+import { getColor } from "@/lib/sidebar/theme"
 
 interface UserProfileProps {
   isCollapsed?: boolean

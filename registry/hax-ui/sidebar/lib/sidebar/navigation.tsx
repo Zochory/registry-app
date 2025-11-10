@@ -1,8 +1,8 @@
 "use client"
 
 import { Github, BookOpen, Search, Network, Grid3x3, Scale } from "lucide-react"
-import { SettingsIcon } from "@/components/sidebar-2/sidebar-icons"
-import type { NavigationItem, NavigationSection } from "@/lib/sidebar-2/navigation"
+import { SettingsIcon } from "@/components/sidebar/sidebar-icons"
+import type { NavigationItem, NavigationSection } from "@/lib/sidebar/navigation"
 
 export const MAIN_NAVIGATION: NavigationItem[] = [
   {

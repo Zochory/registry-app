@@ -2,10 +2,10 @@
 
 import { motion } from "motion/react"
 
-import { containerVariants, itemVariants } from "@/lib/sidebar-2/animations"
-import { MAIN_NAVIGATION } from "@/lib/sidebar-2/navigation"
-import type { NavigationProps } from "@/lib/sidebar-2/navigation"
-import { SidebarNavItem } from "@/components/sidebar-2/sidebar-nav-item"
+import { containerVariants, itemVariants } from "@/lib/sidebar/animations"
+import { MAIN_NAVIGATION } from "@/lib/sidebar/navigation"
+import type { NavigationProps } from "@/lib/sidebar/navigation"
+import { SidebarNavItem } from "@/components/sidebar/sidebar-nav-item"
 
 interface SidebarNavProps extends NavigationProps {
   isCollapsed?: boolean

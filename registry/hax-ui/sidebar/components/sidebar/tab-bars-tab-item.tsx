@@ -25,7 +25,7 @@ export const TabBarsTabItem = memo(function TabBarsTabItem({
 
   return (
     <motion.button
-      className="relative flex items-center justify-center cursor-pointer px-2 py-2 rounded-lg whitespace-nowrap"
+      className="relative flex items-center justify-center cursor-pointer py-2 whitespace-nowrap rounded-full px-3"
       onClick={onClick}
       whileHover={{ backgroundColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.06)" }}
       whileTap={{ scale: 0.98 }}

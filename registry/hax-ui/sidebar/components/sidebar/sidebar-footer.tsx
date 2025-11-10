@@ -4,12 +4,12 @@ import { motion } from "motion/react"
 import { Moon, Sun } from "lucide-react"
 
 import { IconButton } from "@/components/common/icon-button"
-import { SidebarNavItem } from "@/components/sidebar-2/sidebar-nav-item"
-import { UserProfile } from "@/components/sidebar-2/user-profile"
+import { SidebarNavItem } from "@/components/sidebar/sidebar-nav-item"
+import { UserProfile } from "@/components/sidebar/user-profile"
 import { useTheme } from "@/components/theme/theme-provider"
-import { containerVariantsDelayed, itemVariantsFromBottom } from "@/lib/sidebar-2/animations"
-import { FOOTER_LINKS } from "@/lib/sidebar-2/navigation"
-import type { NavigationProps } from "@/lib/sidebar-2/navigation"
+import { containerVariantsDelayed, itemVariantsFromBottom } from "@/lib/sidebar/animations"
+import { FOOTER_LINKS } from "@/lib/sidebar/navigation"
+import type { NavigationProps } from "@/lib/sidebar/navigation"
 
 interface SidebarFooterProps extends NavigationProps {
   isCollapsed?: boolean
