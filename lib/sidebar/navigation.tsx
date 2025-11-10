@@ -1,73 +1,38 @@
-'use client';
+"use client"
 
-import { Github, BookOpen } from "lucide-react";
-
-import {
-  AgenticFabricIcon,
-  AgenticFleetIcon,
-  BookmarkIcon,
-  BrowseIcon,
-  MCPIcon,
-  NewChatIcon,
-  QlawIcon,
-  SearchIcon,
-  SettingsIcon,
-} from "@/components/sidebar/sidebar-icons";
-import type { NavigationItem, NavigationSection } from "@/types/navigation";
+import { Github, BookOpen, Search, Network, Grid3x3, Scale } from "lucide-react"
+import { SettingsIcon } from "@/components/sidebar/sidebar-icons"
+import type { NavigationItem, NavigationSection } from "@/types/navigation"
 
 export const MAIN_NAVIGATION: NavigationItem[] = [
   {
-    id: "new-chat",
-    label: "New Chat",
-    icon: <NewChatIcon />,
-    variant: "primary",
-  },
-  {
     id: "search",
     label: "Search",
-    icon: <SearchIcon />,
+    icon: <Search className="size-[18px]" />,
   },
   {
-    id: "browse",
-    label: "History",
-    icon: <BrowseIcon />,
+    id: "agentic-fleet",
+    label: "Agentic Fleet",
+    icon: <Network className="size-[18px]" />,
   },
   {
-    id: "bookmarked",
-    label: "Bookmarked",
-    icon: <BookmarkIcon />,
+    id: "agentic-fabric",
+    label: "Agentic Fabric",
+    icon: <Grid3x3 className="size-[18px]" />,
   },
+  {
+    id: "qlaw",
+    label: "Qlaw",
+    icon: <Scale className="size-[18px]" />,
+  },
+]
+
+export const FOOTER_LINKS: NavigationItem[] = [
   {
     id: "settings",
     label: "Settings",
     icon: <SettingsIcon />,
   },
-];
-
-export const EXPLORE_NAVIGATION: NavigationItem[] = [
-  {
-    id: "agentic-fleet",
-    label: "Agentic Fleet",
-    icon: <AgenticFleetIcon />,
-  },
-  {
-    id: "agentic-fabric",
-    label: "Agentic Fabric",
-    icon: <AgenticFabricIcon />,
-  },
-  {
-    id: "qlaw",
-    label: "Qlaw",
-    icon: <QlawIcon />,
-  },
-  {
-    id: "mcp",
-    label: "MCP",
-    icon: <MCPIcon />,
-  },
-];
-
-export const FOOTER_LINKS: NavigationItem[] = [
   {
     id: "github",
     label: "Github",
@@ -78,16 +43,12 @@ export const FOOTER_LINKS: NavigationItem[] = [
     label: "Documentation",
     icon: <BookOpen className="size-[18px]" />,
   },
-];
+]
 
 export const NAVIGATION_SECTIONS: NavigationSection[] = [
   {
     items: MAIN_NAVIGATION,
   },
-  {
-    title: "Explore",
-    items: EXPLORE_NAVIGATION,
-  },
-];
+]
 
-export const DEFAULT_ACTIVE_ITEM: NavigationItem["id"] = "new-chat";
+export const DEFAULT_ACTIVE_ITEM: NavigationItem["id"] = "search"

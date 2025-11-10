@@ -3,7 +3,7 @@
 import { SidebarFooter } from "@/components/sidebar/sidebar-footer";
 import { SidebarHeader } from "@/components/sidebar/sidebar-header";
 import { SidebarNav } from "@/components/sidebar/sidebar-nav";
-import type { NavigationItemId } from "@/types/navigation";
+import { NavigationItemId } from "@/types/navigation";
 
 interface SidebarContentProps {
   activeItem: NavigationItemId;
